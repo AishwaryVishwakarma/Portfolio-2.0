@@ -6,6 +6,9 @@ import Typewriter from 'typewriter-effect';
 const HomePage: React.FC = () => {
   return (
     <Layout>
+      <video autoPlay muted loop>
+        <source src='src/assets/Stars-video.mp4' type='video/mp4' />
+      </video>
       <section id='home' className={styles.homeWrapper}>
         <div className={styles.homeHero}>
           <div className={styles.leftContainer}>
@@ -14,10 +17,10 @@ const HomePage: React.FC = () => {
               <span>
                 <Typewriter
                   options={{
-                    strings: ['Aishwary Vishwakarma'],
+                    strings: 'Aishwary Vishwakarma',
                     autoStart: true,
                     loop: true,
-                    deleteSpeed: 10
+                    deleteSpeed: 100,
                   }}
                 />
               </span>
