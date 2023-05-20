@@ -133,6 +133,7 @@
       padding: 10px;
       text-align: center;
       font-weight: 600;
+      transition: all 0.1s ease-in-out;
 
       @media (max-width: '800px') {
         padding: 10px 0;
@@ -140,6 +141,7 @@
 
       &:hover {
         color: var(--primary);
+        transform: translateY(-4px);
       }
     }
 

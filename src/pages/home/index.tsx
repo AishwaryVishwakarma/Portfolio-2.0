@@ -11,6 +11,22 @@ const HomePage: React.FC = () => {
             <div className={styles.heading}>
               Hey there, I am <span>Aishwary Vishwakarma</span>
             </div>
+            <div className={styles.description}>
+              After 2 years of coding and getting my hands dirty in development
+              I realised that programmers actually don't code. They understand
+              the requirements and convert them into code to shape the product.
+              So I don't think in code, but rather I write code by thinking
+              about the impact. I really believe that my skills can be used to
+              scale a product and create an impact through it.
+            </div>
+            <div className={styles.ctaContainer}>
+              <a href='src/assets/Resume.pdf' download className={styles.cvCta}>
+                Download CV
+              </a>
+              <a href='#contact' download className={styles.contactCta}>
+                Let's Talk
+              </a>
+            </div>
           </div>
           <div className={styles.rightContainer}></div>
         </div>
