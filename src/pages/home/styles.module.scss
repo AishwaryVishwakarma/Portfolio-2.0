@@ -5,11 +5,12 @@
   .homeHero {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     .leftContainer {
       display: flex;
       flex-direction: column;
-      max-width: 620px;
+      max-width: 650px;
       gap: 20px;
 
       .heading {
@@ -77,6 +78,17 @@
             color: #000000;
           }
         }
+      }
+    }
+
+    .rightContainer {
+      img {
+        height: 400px;
+        width: 400px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: -100px;
+        outline: 4px solid var(--accent);
       }
     }
   }
