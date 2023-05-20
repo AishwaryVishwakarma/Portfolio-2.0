@@ -80,7 +80,7 @@ const Navbar: React.FC<any> = () => {
   );
 
   return (
-    <div className='defaultBg sticky full-bleed layouted'>
+    <div className='transparentBg sticky full-bleed layouted'>
       <nav className={styles.navbar}>
         <div className={styles.navHeading}>
           <NavLink to='/'>React</NavLink>

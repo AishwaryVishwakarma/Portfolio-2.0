@@ -1,9 +1,11 @@
 .navbar {
   color: var(--text);
-  background: var(--background);
   display: flex;
   align-items: center;
   padding: 20px 0 15px;
+  background: rgba(12, 12, 3, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 
   @media (max-width: '800px') {
     padding: 20px 30px;
