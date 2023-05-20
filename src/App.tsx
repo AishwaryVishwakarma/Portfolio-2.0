@@ -1,8 +1,37 @@
 import React from 'react';
 import './App.css';
+import {RouterProvider, createBrowserRouter} from 'react-router-dom';
+import useMediaQuery from './hooks/useMediaQuery';
+import RootLayout from './components/RootLayout/RootLayout';
+import HomePage from './pages/home';
 
-function App() {
-  return <div>ergerg</div>;
+interface Utility {
+  isMobile: boolean;
 }
+
+export const UtilityContext = React.createContext<Utility>({
+  isMobile: false,
+});
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <RootLayout />,
+    children: [
+      {index: true, element: <HomePage />},
+      // {path: '*', element: <ErrorPage />},
+    ],
+  },
+]);
+
+const App: React.FC = () => {
+  const isMobile = useMediaQuery('(max-width: 800px)');
+
+  return (
+    <UtilityContext.Provider value={{isMobile}}>
+      <RouterProvider router={router} />
+    </UtilityContext.Provider>
+  );
+};
 
 export default App;
