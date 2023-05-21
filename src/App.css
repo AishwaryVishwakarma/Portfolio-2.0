@@ -17,6 +17,11 @@
   --accent: #de7ddc;
 }
 
+.onTop {
+  position: relative;
+  z-index: 2;
+}
+
 .full-bleed {
   width: 100%;
 }

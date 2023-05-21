@@ -32,7 +32,7 @@ const NAV_ITEMS: NavItems[] = [
   },
 ];
 
-const Navbar: React.FC<any> = () => {
+const Navbar: React.FC = () => {
   const {isMobile} = React.useContext(UtilityContext);
   const soundRef = React.useRef<HTMLAudioElement>(null);
 

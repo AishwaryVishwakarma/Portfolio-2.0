@@ -11,7 +11,7 @@ const HomeHero = () => {
           <source src='src/assets/Stars-video.mp4' type='video/mp4' />
         </video>
       </Parallax>
-      <div className={styles.homeWrapper}>
+      <Parallax className={styles.homeWrapper} speed={-20}>
         <section id='home-hero' className={styles.homeHero}>
           <div className={styles.leftContainer}>
             <div className={styles.heading}>
@@ -32,8 +32,8 @@ const HomeHero = () => {
               I realised that programmers actually don't code. They understand
               the requirements and convert them into code to shape the product.
               So I don't think in code, but rather I write code by thinking
-              about the impact. I really believe that my skills can be used
-              toscale a product and create an impact through it.
+              about the impact. I really believe that my skills can be used to
+              scale a product and create an impact through it.
             </div>
             <div className={styles.ctaContainer}>
               <a href='src/assets/Resume.pdf' download className={styles.cvCta}>
@@ -48,7 +48,7 @@ const HomeHero = () => {
             <img src='src/assets/Profile-picture.jpeg' alt='' />
           </div>
         </section>
-      </div>
+      </Parallax>
     </div>
   );
 };
