@@ -9,8 +9,8 @@ const HomePage: React.FC = () => {
       <video autoPlay muted loop>
         <source src='src/assets/Stars-video.mp4' type='video/mp4' />
       </video>
-      <section id='home' className={styles.homeWrapper}>
-        <div className={styles.homeHero}>
+      <div className={styles.homeWrapper}>
+        <section id='home-hero' className={styles.homeHero}>
           <div className={styles.leftContainer}>
             <div className={styles.heading}>
               Hey there, I am{' '}
@@ -45,8 +45,8 @@ const HomePage: React.FC = () => {
           <div className={styles.rightContainer}>
             <img src='src/assets/Profile-picture.jpeg' alt='' />
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </Layout>
   );
 };
