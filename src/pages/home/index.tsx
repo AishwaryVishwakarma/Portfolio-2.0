@@ -4,7 +4,7 @@ import HomeHero from '../../components/Pages/Home/HomeHero';
 
 const HomePage: React.FC = () => {
   return (
-    <Layout className=''>
+    <Layout className='defaultBg full-bleed'>
       <HomeHero />
     </Layout>
   );
