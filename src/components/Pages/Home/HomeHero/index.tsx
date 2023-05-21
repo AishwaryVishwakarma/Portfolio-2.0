@@ -8,7 +8,7 @@ const HomeHero: React.FC = () => {
     <div className='full-bleed layouted'>
       <Parallax className={styles.videoContainer} speed={-200}>
         <video autoPlay muted loop>
-          <source src='src/assets/Stars-video.mp4' type='video/mp4' />
+          <source src='Stars-video.mp4' type='video/mp4' />
         </video>
       </Parallax>
       <Parallax className={styles.homeWrapper} speed={-20}>
@@ -36,7 +36,7 @@ const HomeHero: React.FC = () => {
               scale a product and create an impact through it.
             </div>
             <div className={styles.ctaContainer}>
-              <a href='src/assets/Resume.pdf' download className={styles.cvCta}>
+              <a href='Resume.pdf' download className={styles.cvCta}>
                 Download CV
               </a>
               <a href='#contact' download className={styles.contactCta}>
@@ -45,7 +45,7 @@ const HomeHero: React.FC = () => {
             </div>
           </div>
           <div className={styles.rightContainer}>
-            <img src='src/assets/Profile-picture.jpeg' alt='' />
+            <img src='Profile-picture.jpeg' alt='' />
           </div>
         </section>
       </Parallax>

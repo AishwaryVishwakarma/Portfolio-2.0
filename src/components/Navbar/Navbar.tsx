@@ -58,11 +58,7 @@ const Navbar: React.FC = () => {
           </li>
         ))}
         <img
-          src={
-            musicPlaying
-              ? 'src/assets/sound-gif.gif'
-              : 'src/assets/sound-static.png'
-          }
+          src={musicPlaying ? 'sound-gif.gif' : 'sound-static.png'}
           alt='sound'
           onClick={() => {
             setMusicPlaying((prevState) => !prevState);
@@ -70,10 +66,7 @@ const Navbar: React.FC = () => {
           }}
         />
         <audio ref={soundRef} loop>
-          <source
-            src='src/assets/reflected-light-147979.mp3'
-            type='audio/mpeg'
-          />
+          <source src='reflected-light-147979.mp3' type='audio/mpeg' />
         </audio>
       </ul>
     </>
