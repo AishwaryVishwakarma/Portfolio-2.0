@@ -16,7 +16,7 @@
   --primary: #7ddcde;
   --secondary: #000000;
   --accent: #de7ddc;
-  --dark-accent: #8E558B;
+  --dark-accent: #8e558b;
 }
 
 .onTop {
@@ -53,8 +53,8 @@
   z-index: 100;
 }
 
-
-.delay0{
+/* Project Cards animation */
+.delay0 {
   animation-duration: 0.8s !important;
 }
 

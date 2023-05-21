@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './styles.module.scss';
 import {Tilt} from 'react-tilt';
-import {Parallax} from 'react-scroll-parallax';
 import {useInView} from 'react-intersection-observer';
 
 const CARD_DATA = [
@@ -60,9 +59,8 @@ const Card: React.FC<any> = ({cardData, index}) => {
     triggerOnce: true
   });
 
+  // Calculating delay of animation (styles are in App.css)
   const delayStyle = `delay${index % 3}`;
-
-  console.log(delayStyle);
 
   return (
     <Tilt
