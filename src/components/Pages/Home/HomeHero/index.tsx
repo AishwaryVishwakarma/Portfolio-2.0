@@ -2,8 +2,11 @@ import React from 'react';
 import styles from './styles.module.scss';
 import Typewriter from 'typewriter-effect';
 import {Parallax} from 'react-scroll-parallax';
+import {useInView} from 'react-intersection-observer';
 
 const HomeHero = () => {
+  const {ref: descriptionRef, inView: descriptionIsVisible} = useInView();
+
   return (
     <div className='full-bleed layouted'>
       <Parallax className={styles.videoContainer} speed={-200}>
@@ -27,7 +30,7 @@ const HomeHero = () => {
                 />
               </span>
             </div>
-            <div className={styles.description}>
+            <div className={styles.description} ref={descriptionRef}>
               After 2 years of coding and getting my hands dirty in development
               I realised that programmers actually don't code. They understand
               the requirements and convert them into code to shape the product.
