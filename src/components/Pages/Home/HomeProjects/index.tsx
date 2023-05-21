@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import {Tilt} from 'react-tilt';
 import {useInView} from 'react-intersection-observer';
 
 const CARD_DATA = [
@@ -56,47 +55,40 @@ const Card: React.FC<any> = ({cardData, index}) => {
 
   const {ref: cardRef, inView: cardInView} = useInView({
     threshold: 0.4,
-    triggerOnce: true
+    triggerOnce: true,
   });
 
   // Calculating delay of animation (styles are in App.css)
   const delayStyle = `delay${index % 3}`;
 
   return (
-    <Tilt
-      options={{
-        max: 8,
-        scale: 1,
-      }}
+    <div
+      className={`${styles.card} ${
+        cardInView && styles.fadeInFromLeft
+      } ${delayStyle}`}
+      ref={cardRef}
     >
-      <div
-        className={`${styles.card} ${
-          cardInView && styles.fadeInFromLeft
-        } ${delayStyle}`}
-        ref={cardRef}
-      >
-        <img src={img} alt='project-photo' />
-        <div className={styles.details}>
-          <div className={styles.cardTitle}>
-            <span>{title}</span>
-            <div className={styles.titlebase} />
-          </div>
-          <div className={styles.cardDescription}>{description}</div>
-          <div className={styles.cardCtaContainer}>
-            {liveUrl && (
-              <a href={liveUrl} target='_blank'>
-                See Live
-              </a>
-            )}
-            {github && (
-              <a href={github} target='_blank'>
-                Github
-              </a>
-            )}
-          </div>
+      <img src={img} alt='project-photo' />
+      <div className={styles.details}>
+        <div className={styles.cardTitle}>
+          <span>{title}</span>
+          <div className={styles.titlebase} />
+        </div>
+        <div className={styles.cardDescription}>{description}</div>
+        <div className={styles.cardCtaContainer}>
+          {liveUrl && (
+            <a href={liveUrl} target='_blank'>
+              See Live
+            </a>
+          )}
+          {github && (
+            <a href={github} target='_blank'>
+              Github
+            </a>
+          )}
         </div>
       </div>
-    </Tilt>
+    </div>
   );
 };
 
