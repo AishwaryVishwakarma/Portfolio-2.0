@@ -1,0 +1,123 @@
+.projectsWrapper {
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  .heading {
+    font-family: Rubik;
+    color: var(--text);
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+  }
+
+  .cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px 30px;
+    justify-content: space-between;
+  }
+}
+
+.card {
+  background: var(--light-background);
+  max-width: 350px;
+  border-radius: 5px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .cardTitle {
+      width: max-content;
+      font-family: Nunito;
+      font-size: 27px;
+      color: var(--text);
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      position: relative;
+      background: transparent;
+      opacity: 0.9;
+      user-select: none;
+      z-index: 1;
+
+      & > span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .titlebase {
+        position: absolute;
+        width: 100%;
+        height: 8px;
+        background: var(--dark-accent);
+        bottom: 0;
+        transition: all 0.3s;
+        z-index: 0;
+        opacity: 0.8;
+      }
+    }
+
+    .cardDescription {
+      font-family: Nunito;
+      font-size: 17.5px;
+      color: var(--text);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      line-clamp: 2;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+
+    .cardCtaContainer {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+
+      & > a {
+        text-decoration: none;
+        color: var(--text);
+        padding: 8px 20px;
+        border-radius: 5px;
+        font-family: Nunito;
+        font-size: 17.5px;
+        font-weight: 500;
+        transition: all 0.2s ease-in-out;
+
+        &:first-child {
+          background: var(--accent);
+
+          &:hover {
+            box-shadow: 0 1px 8px 0 var(--accent);
+            transform: translateY(-5px);
+          }
+        }
+
+        &:last-child {
+          background: var(--secondary);
+
+          &:hover {
+            background: white;
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .titlebase {
+      height: 16px !important;
+    }
+  }
+}
