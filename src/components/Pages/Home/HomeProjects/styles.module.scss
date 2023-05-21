@@ -25,6 +25,8 @@
   max-width: 350px;
   border-radius: 5px;
   overflow: hidden;
+  opacity: 0;
+  transform: translateX(-150px);
 
   img {
     width: 100%;
@@ -118,6 +120,17 @@
   &:hover {
     .titlebase {
       height: 16px !important;
+    }
+  }
+}
+
+.fadeInFromLeft {
+  animation: fade-in-from-left 0.8s ease-in-out forwards;
+
+  @keyframes fade-in-from-left{
+    100% {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 }

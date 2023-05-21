@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
     <div className='transparentBg sticky full-bleed layouted'>
       <nav className={styles.navbar}>
         <div className={styles.navHeading}>
-          <NavLink to='/'>React</NavLink>
+          <NavLink to='/'>Welcome</NavLink>
         </div>
         {isMobile ? (
           <div

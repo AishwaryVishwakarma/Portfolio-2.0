@@ -52,3 +52,16 @@
   top: 0;
   z-index: 100;
 }
+
+
+.delay0{
+  animation-duration: 0.8s !important;
+}
+
+.delay1 {
+  animation-duration: 1s !important;
+}
+
+.delay2 {
+  animation-duration: 1.2s !important;
+}
