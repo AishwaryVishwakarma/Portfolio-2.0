@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../../components/Layout/Layout';
 import HomeHero from '../../components/Pages/Home/HomeHero';
-import Projects from '../../components/Pages/Home/Projects';
+import Projects from '../../components/Pages/Home/HomeProjects';
 
 const HomePage: React.FC = () => {
   return (

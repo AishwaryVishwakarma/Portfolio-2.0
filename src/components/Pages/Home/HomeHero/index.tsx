@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 import Typewriter from 'typewriter-effect';
 import {Parallax} from 'react-scroll-parallax';
 
-const HomeHero = () => {
+const HomeHero: React.FC = () => {
   return (
     <div className='full-bleed layouted'>
       <Parallax className={styles.videoContainer} speed={-200}>

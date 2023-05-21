@@ -12,9 +12,11 @@
 :root {
   --text: #f4f5d6;
   --background: #0c0c03;
+  --light-background: #16170f;
   --primary: #7ddcde;
   --secondary: #000000;
   --accent: #de7ddc;
+  --dark-accent: #8e558b;
 }
 
 .onTop {
@@ -49,4 +51,17 @@
   position: fixed;
   top: 0;
   z-index: 100;
+}
+
+/* Project Cards animation */
+.delay0 {
+  animation-duration: 0.8s !important;
+}
+
+.delay1 {
+  animation-duration: 1s !important;
+}
+
+.delay2 {
+  animation-duration: 1.2s !important;
 }

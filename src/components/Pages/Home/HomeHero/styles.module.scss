@@ -61,10 +61,7 @@
         font-family: Nunito;
         font-size: 17.5px;
         line-height: 1.5;
-        animation-name: fade-in-from-left;
-        animation-duration: 0.5s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease-in-out;
+        animation: fade-in-from-left 0.5s ease-in-out forwards;
 
         @keyframes fade-in-from-left {
           0% {
@@ -88,20 +85,16 @@
           text-decoration: none;
           padding: 10px 30px;
           font-size: 20px;
+          border-radius: 5px;
+          transition: all 0.2s ease-in-out;
         }
 
         .cvCta {
           background: var(--primary);
           color: #000000;
-          border-radius: 5px;
-          transition: all 0.2s ease-in-out;
-          animation-name: fade-in-left;
-          animation-duration: 0.5s;
-          animation-timing-function: ease-in-out;
-          animation-fill-mode: forwards;
+          animation: fade-in-left 0.5s ease-in-out forwards;
 
           &:hover {
-            transform: translateY(-5px);
             box-shadow: 0 2px 20px 2px rgba($color: #7ddcde, $alpha: 0.6);
           }
 
@@ -118,9 +111,7 @@
 
         .contactCta {
           background: var(--secondary);
-          border-radius: 5px;
           color: var(--text);
-          transition: all 0.2s ease-in-out;
 
           &:hover {
             background: #ffffff;
@@ -134,20 +125,21 @@
       img {
         height: 400px;
         width: 400px;
+        padding: 5px;
         object-fit: cover;
         border-radius: 10px;
         object-position: -100px;
-        outline: 4px solid var(--accent);
+        background: linear-gradient(45deg, var(--primary), var(--accent));
         transition: all 0.2s ease-in-out;
         cursor: pointer;
         opacity: 0;
-        animation: fade-in 0.5s ease-in-out forwards;
+        animation: fade-in-border-radius 0.5s ease-in-out forwards;
 
         &:hover {
-          box-shadow: 0 0 30px 2px var(--accent);
+          box-shadow: 0 0 20px 2px var(--accent);
         }
 
-        @keyframes fade-in {
+        @keyframes fade-in-border-radius {
           100% {
             opacity: 1;
             border-radius: 50%;
