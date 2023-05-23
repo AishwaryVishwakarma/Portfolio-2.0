@@ -77,12 +77,12 @@ const Card: React.FC<any> = ({cardData, index}) => {
         <div className={styles.cardDescription}>{description}</div>
         <div className={styles.cardCtaContainer}>
           {liveUrl && (
-            <a href={liveUrl} target='_blank'>
+            <a href={liveUrl} target='_blank' className={styles.liveUrl}>
               See Live
             </a>
           )}
           {github && (
-            <a href={github} target='_blank'>
+            <a href={github} target='_blank' className={styles.github}>
               Github
             </a>
           )}
