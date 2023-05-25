@@ -110,7 +110,13 @@ const Navbar: React.FC = () => {
           listItems
         )}
         {isMobile && isHamMenuOpen && (
-          <div className={styles.hamMenu}>{listItems}</div>
+          <div
+            className={`${styles.hamMenu} ${
+              isHamMenuOpen && styles.openAnimation
+            }`}
+          >
+            {listItems}
+          </div>
         )}
       </nav>
     </div>
