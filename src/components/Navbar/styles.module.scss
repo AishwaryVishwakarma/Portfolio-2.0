@@ -100,10 +100,23 @@
     height: 100vh;
     left: 0;
     padding: 0 30px;
-    top: 76px;
+    top: 72px;
     width: 100%;
     overflow: scroll;
     overscroll-behavior: contain;
+  }
+
+  .openAnimation {
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: fade-in-left 0.3s ease-in-out forwards;
+
+    @keyframes fade-in-left {
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
   }
 
   a {
@@ -117,6 +130,10 @@
     font-weight: 700;
     letter-spacing: 1px;
     cursor: pointer;
+
+    @media (max-width: '800px') {
+      font-size: 26px;
+    }
   }
 
   .navItems {

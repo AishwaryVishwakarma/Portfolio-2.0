@@ -4,12 +4,21 @@
   flex-direction: column;
   gap: 40px;
 
+  @media (max-width: '800px') {
+    padding: 30px;
+  }
+
   .heading {
     font-family: Rubik;
     color: var(--text);
     font-size: 34px;
     font-weight: 500;
     letter-spacing: 1.2px;
+
+    @media (max-width: '800px') {
+      text-align: center;
+      font-size: 26px;
+    }
   }
 
   .cardsContainer {
@@ -17,6 +26,10 @@
     flex-wrap: wrap;
     gap: 50px 30px;
     justify-content: space-between;
+
+    @media (max-width: "800px") {
+      gap: 30px;
+    }
   }
 }
 
@@ -28,10 +41,20 @@
   opacity: 0;
   transform: translateX(-150px);
 
+  @media (max-width: "800px") {
+    max-width: 100%;
+  }
+
   img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    transition: all 0.3s linear;
+    opacity: 0.6;
+
+    @media (max-width: "800px") {
+      opacity: 1;
+    }
   }
 
   .details {
@@ -43,7 +66,7 @@
     .cardTitle {
       width: max-content;
       font-family: Nunito;
-      font-size: 27px;
+      font-size: 26px;
       color: var(--text);
       font-weight: 500;
       letter-spacing: 1.2px;
@@ -95,23 +118,23 @@
         font-size: 17.5px;
         font-weight: 500;
         transition: all 0.2s ease-in-out;
+      }
 
-        &:first-child {
-          background: var(--accent);
+      .liveUrl {
+        background: var(--accent);
 
-          &:hover {
-            box-shadow: 0 1px 8px 0 var(--accent);
-            transform: translateY(-5px);
-          }
+        &:hover {
+          box-shadow: 0 1px 8px 0 var(--accent);
+          transform: translateY(-5px);
         }
+      }
 
-        &:last-child {
-          background: var(--secondary);
+      .github {
+        background: var(--secondary);
 
-          &:hover {
-            background: white;
-            color: #000000;
-          }
+        &:hover {
+          background: white;
+          color: #000000;
         }
       }
     }
@@ -121,6 +144,11 @@
     .titlebase {
       height: 16px !important;
     }
+
+    img {
+      transform: scale(1.02);
+      opacity: 1;
+    }
   }
 }
 
@@ -128,7 +156,7 @@
 .fadeInFromLeft {
   animation: fade-in-from-left 0.8s ease-in-out forwards;
 
-  @keyframes fade-in-from-left{
+  @keyframes fade-in-from-left {
     100% {
       opacity: 1;
       transform: translateX(0);

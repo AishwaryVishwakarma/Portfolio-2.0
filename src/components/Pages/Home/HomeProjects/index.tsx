@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
 import {useInView} from 'react-intersection-observer';
+import {UtilityContext} from '../../../../App';
 
 const CARD_DATA = [
   {
@@ -53,13 +54,15 @@ const CARD_DATA = [
 const Card: React.FC<any> = ({cardData, index}) => {
   const {title, description, img, liveUrl, github} = cardData ?? {};
 
+  const {isMobile} = React.useContext(UtilityContext);
+
   const {ref: cardRef, inView: cardInView} = useInView({
-    threshold: 0.4,
+    threshold: isMobile ? 0.2 : 0.4,
     triggerOnce: true,
   });
 
   // Calculating delay of animation (styles are in App.css)
-  const delayStyle = `delay${index % 3}`;
+  const delayStyle = isMobile ? 'delay0' : `delay${index % 3}`;
 
   return (
     <div
@@ -77,12 +80,12 @@ const Card: React.FC<any> = ({cardData, index}) => {
         <div className={styles.cardDescription}>{description}</div>
         <div className={styles.cardCtaContainer}>
           {liveUrl && (
-            <a href={liveUrl} target='_blank'>
+            <a href={liveUrl} target='_blank' className={styles.liveUrl}>
               See Live
             </a>
           )}
           {github && (
-            <a href={github} target='_blank'>
+            <a href={github} target='_blank' className={styles.github}>
               Github
             </a>
           )}
