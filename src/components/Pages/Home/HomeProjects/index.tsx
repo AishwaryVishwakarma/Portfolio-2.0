@@ -3,7 +3,20 @@ import styles from './styles.module.scss';
 import {useInView} from 'react-intersection-observer';
 import {UtilityContext} from '../../../../App';
 
-const CARD_DATA = [
+interface Card {
+  title: string;
+  description: string;
+  img: string;
+  liveUrl?: string;
+  github: string;
+}
+
+interface CardData {
+  cardData: Card;
+  index: number;
+}
+
+const CARD_DATA: Card[] = [
   {
     title: 'Netflix Clone',
     description: 'Clone website of Netflix built on top of ReactJs',
@@ -51,7 +64,7 @@ const CARD_DATA = [
   },
 ];
 
-const Card: React.FC<any> = ({cardData, index}) => {
+const Card: React.FC<CardData> = ({cardData, index}) => {
   const {title, description, img, liveUrl, github} = cardData ?? {};
 
   const {isMobile} = React.useContext(UtilityContext);
