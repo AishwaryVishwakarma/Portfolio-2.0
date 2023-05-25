@@ -4,12 +4,21 @@
   flex-direction: column;
   gap: 40px;
 
+  @media (max-width: '800px') {
+    padding: 30px;
+  }
+
   .heading {
     font-family: Rubik;
     color: var(--text);
     font-size: 34px;
     font-weight: 500;
     letter-spacing: 1.2px;
+
+    @media (max-width: '800px') {
+      text-align: center;
+      font-size: 26px;
+    }
   }
 
   .cardsContainer {
@@ -17,6 +26,10 @@
     flex-wrap: wrap;
     gap: 50px 30px;
     justify-content: space-between;
+
+    @media (max-width: "800px") {
+      gap: 30px;
+    }
   }
 }
 
@@ -28,12 +41,20 @@
   opacity: 0;
   transform: translateX(-150px);
 
+  @media (max-width: "800px") {
+    max-width: 100%;
+  }
+
   img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s linear;
     opacity: 0.6;
+
+    @media (max-width: "800px") {
+      opacity: 1;
+    }
   }
 
   .details {
@@ -45,7 +66,7 @@
     .cardTitle {
       width: max-content;
       font-family: Nunito;
-      font-size: 27px;
+      font-size: 26px;
       color: var(--text);
       font-weight: 500;
       letter-spacing: 1.2px;

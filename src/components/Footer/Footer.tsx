@@ -1,18 +1,39 @@
-import React from 'react'
-import styles from './styles.module.scss'
-import { FiFacebook, FiInstagram, FiLinkedin, FiTwitter } from 'react-icons/fi'
-import { AiFillHeart } from 'react-icons/ai'
+import React from 'react';
+import styles from './styles.module.scss';
+import {FiInstagram, FiLinkedin, FiTwitter} from 'react-icons/fi';
+import {AiFillHeart, AiFillGithub} from 'react-icons/ai';
 
-const ICONS = [<FiFacebook />, <FiInstagram />, <FiLinkedin />, <FiTwitter />]
+const ICONS = [
+  {
+    icon: <AiFillGithub />,
+    to: 'https://github.com/AishwaryVishwakarma',
+  },
+  {
+    icon: <FiInstagram />,
+    to: '/',
+  },
+  {
+    icon: <FiLinkedin />,
+    to: 'https://www.linkedin.com/in/aishwary-vishwakarma-b613601b3/',
+  },
+  {
+    icon: <FiTwitter />,
+    to: 'https://twitter.com/AishwaryVishwa3',
+  },
+];
 
-const TABS = ['Terms of Use', 'Privacy Policy', 'Security', 'About Us', 'FAQ']
+const TABS = ['Terms of Use', 'Privacy Policy', 'Security', 'About Us', 'FAQ'];
 
 const Footer: React.FC = () => {
   return (
     <div className={styles.footerWrapper}>
       <ul className={styles.footerIcons}>
-        {ICONS.map((icon, idx) => (
-          <li key={idx}>{icon}</li>
+        {ICONS.map(({icon, to}, idx) => (
+          <li key={idx}>
+            <a href={to} target='_blank'>
+              {icon}
+            </a>
+          </li>
         ))}
       </ul>
       <ul className={styles.footerTabs}>
@@ -27,15 +48,15 @@ const Footer: React.FC = () => {
         </span>{' '}
         by{' '}
         <a
-          href="https://www.linkedin.com/in/aishwary-vishwakarma-b613601b3/"
-          target="_blank"
+          href='https://www.linkedin.com/in/aishwary-vishwakarma-b613601b3/'
+          target='_blank'
         >
           Aishwary Vishwakarma
         </a>{' '}
         @ 2023
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

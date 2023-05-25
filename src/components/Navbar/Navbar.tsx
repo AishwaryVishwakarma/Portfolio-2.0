@@ -57,23 +57,33 @@ const Navbar: React.FC = () => {
             </NavLink>
           </li>
         ))}
-        <img
-          src={musicPlaying ? 'sound-gif.gif' : 'sound-static.png'}
-          alt='sound'
-          onClick={() => {
-            setMusicPlaying((prevState) => !prevState);
-            musicPlaying ? soundRef.current?.pause() : soundRef.current?.play();
-          }}
-        />
-        <audio ref={soundRef} loop>
-          <source src='reflected-light-147979.mp3' type='audio/mpeg' />
-        </audio>
+        {!isMobile && (
+          <>
+            <img
+              src={musicPlaying ? 'sound-gif.gif' : 'sound-static.png'}
+              alt='sound'
+              onClick={() => {
+                setMusicPlaying((prevState) => !prevState);
+                musicPlaying
+                  ? soundRef.current?.pause()
+                  : soundRef.current?.play();
+              }}
+            />
+            <audio ref={soundRef} loop>
+              <source src='reflected-light-147979.mp3' type='audio/mpeg' />
+            </audio>
+          </>
+        )}
       </ul>
     </>
   );
 
   return (
-    <div className='transparentBg sticky full-bleed layouted'>
+    <div
+      className={`${
+        isMobile ? 'defaultBg' : 'transparentBg'
+      } sticky full-bleed layouted`}
+    >
       <nav className={styles.navbar}>
         <div className={styles.navHeading}>
           <NavLink to='/'>Welcome</NavLink>

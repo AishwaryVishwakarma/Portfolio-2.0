@@ -2,8 +2,11 @@ import React from 'react';
 import styles from './styles.module.scss';
 import Typewriter from 'typewriter-effect';
 import {Parallax} from 'react-scroll-parallax';
+import {UtilityContext} from '../../../../App';
 
 const HomeHero: React.FC = () => {
+  const {isMobile} = React.useContext(UtilityContext);
+
   return (
     <div className='full-bleed layouted'>
       <Parallax className={styles.videoContainer} speed={-200}>
@@ -11,20 +14,24 @@ const HomeHero: React.FC = () => {
           <source src='Stars-video.mp4' type='video/mp4' />
         </video>
       </Parallax>
-      <Parallax className={styles.homeWrapper} speed={-20}>
+      <Parallax className={styles.homeWrapper} speed={isMobile ? 0 : -20}>
         <section id='home-hero' className={styles.homeHero}>
           <div className={styles.leftContainer}>
             <div className={styles.heading}>
               Hey there, I am{' '}
               <span>
-                <Typewriter
-                  options={{
-                    strings: 'Aishwary Vishwakarma',
-                    autoStart: true,
-                    loop: true,
-                    deleteSpeed: 100,
-                  }}
-                />
+                {!isMobile ? (
+                  <Typewriter
+                    options={{
+                      strings: 'Aishwary Vishwakarma',
+                      autoStart: true,
+                      loop: true,
+                      deleteSpeed: 100,
+                    }}
+                  />
+                ) : (
+                  'Aishwary Vishwakarma'
+                )}
               </span>
             </div>
             <div className={styles.description}>
@@ -39,7 +46,7 @@ const HomeHero: React.FC = () => {
               <a href='Resume.pdf' download className={styles.cvCta}>
                 Download CV
               </a>
-              <a href='#contact' download className={styles.contactCta}>
+              <a href='#contact' className={styles.contactCta}>
                 Let's Talk
               </a>
             </div>
