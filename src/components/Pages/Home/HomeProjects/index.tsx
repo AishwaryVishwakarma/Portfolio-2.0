@@ -2,70 +2,10 @@ import React from 'react';
 import styles from './styles.module.scss';
 import {useInView} from 'react-intersection-observer';
 import {UtilityContext} from '../../../../App';
+import SanityImage from '../../../../utils/SanityImage';
 
-interface Card {
-  title: string;
-  description: string;
-  img: string;
-  liveUrl?: string;
-  github: string;
-}
-
-interface CardData {
-  cardData: Card;
-  index: number;
-}
-
-const CARD_DATA: Card[] = [
-  {
-    title: 'Netflix Clone',
-    description: 'Clone website of Netflix built on top of ReactJs',
-    img: 'https://i.postimg.cc/4NKTyzmy/Screenshot-from-2023-05-21-15-09.png',
-    liveUrl: 'https://willowy-toffee-8e687c.netlify.app/',
-    github: 'https://github.com/AishwaryVishwakarma/Netflix-Clone',
-  },
-  {
-    title: 'E-Commerce',
-    description: 'A simple E-commerce built with ReactJs + Typescript',
-    img: 'https://i.postimg.cc/Sxfqbmnf/Screenshot-from-2023-05-21-15-14.png',
-    liveUrl: 'https://ecommerce-atoz.netlify.app/',
-    github: 'https://github.com/AishwaryVishwakarma/E-commerce',
-  },
-  {
-    title: 'Dairy Farm',
-    description:
-      "It's an e-commerce website for Dairy farm owners who wish to boost their business by entering into online market. Built on ReactJs + Typescript",
-    img: 'https://i.postimg.cc/jSZ9h2Wm/Screenshot-from-2023-05-21-15-17.png',
-    liveUrl: 'https://silly-empanada-db84a3.netlify.app/',
-    github: 'https://github.com/AishwaryVishwakarma/dairy-farm',
-  },
-  {
-    title: 'Recipe Finder',
-    description:
-      "Recipe finder let's you find the recipe of all your favourite recipe on a click of a button. Built witj ReactJs",
-    img: 'https://i.postimg.cc/W1Cmjcxt/Screenshot-from-2023-05-21-15-20.png',
-    liveUrl: 'https://recipe-finder-appliaction.netlify.app/',
-    github: 'https://github.com/AishwaryVishwakarma/Recipe-Finder',
-  },
-  {
-    title: 'Real Estate',
-    description:
-      'This website serves as a e commerce website for Real Estate business, like ghardekho. Built on ReactJs',
-    img: 'https://i.postimg.cc/cH9w9q7s/Screenshot-from-2023-05-21-20-36.png',
-    liveUrl: 'https://real-state-webapp.netlify.app/',
-    github: 'https://github.com/AishwaryVishwakarma/Real-Estate',
-  },
-  {
-    title: 'News App',
-    description:
-      'News App will retreive the latest news base on different categories all over India.',
-    img: 'https://i.postimg.cc/T3QTzTSv/Screenshot-from-2023-05-21-20-46.png',
-    github: 'https://github.com/AishwaryVishwakarma/News-App-React',
-  },
-];
-
-const Card: React.FC<CardData> = ({cardData, index}) => {
-  const {title, description, img, liveUrl, github} = cardData ?? {};
+const Card: React.FC<any> = ({cardData, index}) => {
+  const {projectImage, title, description, cta1, cta2} = cardData ?? {};
 
   const {isMobile} = React.useContext(UtilityContext);
 
@@ -84,7 +24,7 @@ const Card: React.FC<CardData> = ({cardData, index}) => {
       } ${delayStyle}`}
       ref={cardRef}
     >
-      <img src={img} alt='project-photo' />
+      <SanityImage imageBlock={projectImage} />
       <div className={styles.details}>
         <div className={styles.cardTitle}>
           <span>{title}</span>
@@ -92,14 +32,14 @@ const Card: React.FC<CardData> = ({cardData, index}) => {
         </div>
         <div className={styles.cardDescription}>{description}</div>
         <div className={styles.cardCtaContainer}>
-          {liveUrl && (
-            <a href={liveUrl} target='_blank' className={styles.liveUrl}>
-              See Live
+          {cta1 && (
+            <a href={cta1?.url} target='_blank' className={styles.liveUrl}>
+              {cta1?.text}
             </a>
           )}
-          {github && (
-            <a href={github} target='_blank' className={styles.github}>
-              Github
+          {cta2 && (
+            <a href={cta2?.url} target='_blank' className={styles.github}>
+              {cta2?.text}
             </a>
           )}
         </div>
@@ -108,15 +48,16 @@ const Card: React.FC<CardData> = ({cardData, index}) => {
   );
 };
 
-const HomeProjects: React.FC = () => {
+const HomeProjects: React.FC<any> = ({heading, cardDetails}) => {
   return (
     <div className='full-bleed layouted defaultBg onTop'>
       <section id='home-projects' className={styles.projectsWrapper}>
-        <div className={styles.heading}>Check out my recent projects</div>
+        <div className={styles.heading}>{heading}</div>
         <div className={styles.cardsContainer}>
-          {CARD_DATA.map((cardData, idx) => (
-            <Card key={cardData.img} cardData={cardData} index={idx} />
-          ))}
+          {cardDetails &&
+            cardDetails.map((cardData: any, idx: number) => (
+              <Card cardData={cardData} index={idx} key={cardData?._key} />
+            ))}
         </div>
       </section>
     </div>
