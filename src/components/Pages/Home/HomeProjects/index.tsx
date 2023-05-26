@@ -3,6 +3,7 @@ import styles from './styles.module.scss';
 import {useInView} from 'react-intersection-observer';
 import {UtilityContext} from '../../../../App';
 import SanityImage from '../../../../utils/SanityImage';
+import SanityLink from '../../../../utils/SanityLink';
 
 const Card: React.FC<any> = ({cardData, index}) => {
   const {projectImage, title, description, cta1, cta2} = cardData ?? {};
@@ -32,16 +33,8 @@ const Card: React.FC<any> = ({cardData, index}) => {
         </div>
         <div className={styles.cardDescription}>{description}</div>
         <div className={styles.cardCtaContainer}>
-          {cta1 && (
-            <a href={cta1?.url} target='_blank' className={styles.liveUrl}>
-              {cta1?.text}
-            </a>
-          )}
-          {cta2 && (
-            <a href={cta2?.url} target='_blank' className={styles.github}>
-              {cta2?.text}
-            </a>
-          )}
+          {cta1 && <SanityLink block={cta1} className={styles.liveUrl} />}
+          {cta2 && <SanityLink block={cta2} className={styles.github} />}
         </div>
       </div>
     </div>
