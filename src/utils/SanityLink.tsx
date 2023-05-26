@@ -1,4 +1,5 @@
 import React from 'react';
+import {projectId, dataset} from '../client';
 
 interface Props {
   block: {
@@ -16,7 +17,7 @@ const SanityLink: React.FC<Props> = ({block, className, target = '_blank'}) => {
 
   const getUrlFromId = (ref: string): string => {
     const [_file, id, extension] = ref.split('-');
-    return `https://cdn.sanity.io/files/8pt23m89/production/${id}.${extension}`;
+    return `https://cdn.sanity.io/files/${projectId}/${dataset}/${id}.${extension}`;
   };
 
   const documentUrl = document && getUrlFromId(document?.asset?._ref);
