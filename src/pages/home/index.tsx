@@ -9,21 +9,24 @@ const HomePage: React.FC = () => {
 
   React.useEffect(() => {
     client
-      .fetch('*[_type == "homePage"] {homeHeroSection}')
+      .fetch(
+        '*[_type == "homePage"] {homeHeroSection, projectSectionHeading, projectCards}'
+      )
       .then((res) => {
         setHomeData(res);
       })
       .catch((err) => console.log(err));
   }, []);
 
-  const {homeHeroSection}: any = (homeData && homeData[0]) ?? {};
+  const {homeHeroSection, projectSectionHeading, projectCards}: any =
+    (homeData && homeData[0]) ?? {};
 
   return (
     <Layout className='defaultBg full-bleed'>
       {/* Hero */}
       <HomeHero heroData={homeHeroSection} />
       {/* Projects */}
-      <Projects />
+      <Projects heading={projectSectionHeading} cardDetails={projectCards} />
     </Layout>
   );
 };

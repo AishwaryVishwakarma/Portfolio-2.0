@@ -3,7 +3,8 @@ import styles from './styles.module.scss';
 import Typewriter from 'typewriter-effect';
 import {Parallax} from 'react-scroll-parallax';
 import {UtilityContext} from '../../../../App';
-import {urlFor} from '../../../../client';
+import SanityLink from '../../../../utils/SanityLink';
+import SanityImage from '../../../../utils/SanityImage';
 
 const HomeHero: React.FC<any> = ({heroData}) => {
   const {isMobile} = React.useContext(UtilityContext);
@@ -13,6 +14,8 @@ const HomeHero: React.FC<any> = ({heroData}) => {
     heroColoredText: coloredText,
     heroDescription: description,
     heroImage,
+    cta1,
+    cta2,
   } = heroData ?? {};
 
   return (
@@ -44,19 +47,14 @@ const HomeHero: React.FC<any> = ({heroData}) => {
             </div>
             <div className={styles.description}>{description}</div>
             <div className={styles.ctaContainer}>
-              <a href='Resume.pdf' download className={styles.cvCta}>
-                Download CV
-              </a>
-              <a href='#contact' className={styles.contactCta}>
-                Let's Talk
+              <SanityLink block={cta1} className={styles.cvCta} />
+              <a href={cta2?.url} className={styles.contactCta}>
+                {cta2?.text}
               </a>
             </div>
           </div>
           <div className={styles.rightContainer}>
-            <img
-              src={heroImage && urlFor(heroImage?.image).url()}
-              alt={heroImage?.alt}
-            />
+            <SanityImage imageBlock={heroImage} alt='Profile picture' />
           </div>
         </section>
       </Parallax>

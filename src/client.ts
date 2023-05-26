@@ -1,17 +1,14 @@
 import {createClient} from '@sanity/client';
-import imageUrlBuilder from '@sanity/image-url';
 
 const todayDate = new Date().toISOString().slice(0, 10);
 
+export const projectId = '8pt23m89';
+
+export const dataset = 'production';
+
 export const client = createClient({
-  projectId: '8pt23m89',
-  dataset: 'production',
-  useCdn: true, // set to `false` to bypass the edge cache
-  apiVersion: todayDate.toString(), // use current date (YYYY-MM-DD) to target the latest API version
+  projectId: projectId,
+  dataset: dataset,
+  useCdn: true,
+  apiVersion: todayDate.toString(),
 });
-
-const builder = imageUrlBuilder(client);
-
-export function urlFor(source: string) {
-  return builder.image(source);
-}
