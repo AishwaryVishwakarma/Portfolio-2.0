@@ -26,10 +26,12 @@ const Card: React.FC<any> = ({cardData, index}) => {
       } ${delayStyle}`}
       ref={cardRef}
     >
-      <SanityImage imageBlock={projectImage} />
+      <div className={styles.imageContainer}>
+        <SanityImage imageBlock={projectImage} />
+      </div>
       <div className={styles.details}>
         <div className={styles.cardTitle}>
-          <span data-value={title} onMouseOver={textGlitchEffect}>
+          <span data-value={title} onMouseEnter={textGlitchEffect}>
             {title}
           </span>
           <div className={styles.titlebase} />
