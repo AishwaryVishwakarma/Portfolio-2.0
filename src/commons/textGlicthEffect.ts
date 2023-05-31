@@ -16,6 +16,8 @@ const textGlitchEffect = (event: any) => {
         }
 
         return letters[Math.floor(Math.random() * 26)];
+
+        return letter; //Build was failing because of the unused variable
       })
       .join('');
 
