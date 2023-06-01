@@ -4,6 +4,10 @@ import HomeHero from '../../components/Pages/Home/HomeHero';
 import Projects from '../../components/Pages/Home/HomeProjects';
 import {client} from '../../client';
 
+/*
+ * Home Page
+ */
+
 const HomePage: React.FC = () => {
   const [homeData, setHomeData] = React.useState();
 

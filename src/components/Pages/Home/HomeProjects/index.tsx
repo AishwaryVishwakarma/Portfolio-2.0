@@ -6,6 +6,10 @@ import SanityImage from '../../../../utils/SanityImage';
 import SanityLink from '../../../../utils/SanityLink';
 import textGlitchEffect from '../../../../commons/textGlicthEffect';
 
+/*
+* Home Projects Section
+*/
+
 const Card: React.FC<any> = ({cardData, index}) => {
   const {projectImage, title, description, cta1, cta2} = cardData ?? {};
 
