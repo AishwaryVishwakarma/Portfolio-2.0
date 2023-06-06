@@ -4,11 +4,11 @@ import {useInView} from 'react-intersection-observer';
 import {UtilityContext} from '../../../../App';
 import SanityImage from '../../../../utils/SanityImage';
 import SanityLink from '../../../../utils/SanityLink';
-import textGlitchEffect from '../../../../commons/textGlicthEffect';
+import {TextGlitchEffect} from 'react-text-glitch-effect';
 
 /*
-* Home Projects Section
-*/
+ * Home Projects Section
+ */
 
 const Card: React.FC<any> = ({cardData, index}) => {
   const {projectImage, title, description, cta1, cta2} = cardData ?? {};
@@ -34,10 +34,8 @@ const Card: React.FC<any> = ({cardData, index}) => {
         <SanityImage imageBlock={projectImage} />
       </div>
       <div className={styles.details}>
-        <div className={styles.cardTitle}>
-          <span data-value={title} onMouseEnter={textGlitchEffect}>
-            {title}
-          </span>
+        <div className={styles.cardTitleContainer}>
+          <TextGlitchEffect text={title} className={styles.title} />
           <div className={styles.titlebase} />
         </div>
         <div className={styles.cardDescription}>{description}</div>

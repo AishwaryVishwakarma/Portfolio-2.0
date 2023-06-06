@@ -5,6 +5,7 @@ import useMediaQuery from './hooks/useMediaQuery';
 import RootLayout from './components/RootLayout/RootLayout';
 import HomePage from './pages/home';
 import {ParallaxProvider} from 'react-scroll-parallax';
+import ProjectsPage from './pages/projects';
 
 interface Utility {
   isMobile: boolean;
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {index: true, element: <HomePage />},
+      {path: 'projects', element: <ProjectsPage />},
       // {path: '*', element: <ErrorPage />},
     ],
   },

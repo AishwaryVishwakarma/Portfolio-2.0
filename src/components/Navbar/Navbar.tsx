@@ -15,8 +15,8 @@ const NAV_ITEMS: NavItems[] = [
     path: '/',
   },
   {
-    name: 'Service',
-    path: '/service',
+    name: 'Projects',
+    path: '/projects',
   },
   {
     name: 'Categories',
