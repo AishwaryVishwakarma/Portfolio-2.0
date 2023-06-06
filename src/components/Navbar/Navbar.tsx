@@ -86,7 +86,7 @@ const Navbar: React.FC = () => {
     >
       <nav className={styles.navbar}>
         <div className={styles.navHeading}>
-          <NavLink to='/'>Welcome</NavLink>
+          <NavLink to='/'>Aishwary Vishwakarma</NavLink>
         </div>
         {isMobile ? (
           <div
