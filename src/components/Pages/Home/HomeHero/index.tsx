@@ -6,6 +6,10 @@ import {UtilityContext} from '../../../../App';
 import SanityLink from '../../../../utils/SanityLink';
 import SanityImage from '../../../../utils/SanityImage';
 
+/*
+* Home Hero
+*/
+
 const HomeHero: React.FC<any> = ({heroData}) => {
   const {isMobile} = React.useContext(UtilityContext);
 

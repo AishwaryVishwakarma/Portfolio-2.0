@@ -38,6 +38,10 @@
   .footerIcons {
     & > li {
       font-size: 32px;
+
+      &:hover {
+        color: var(--primary);
+      }
     }
   }
 

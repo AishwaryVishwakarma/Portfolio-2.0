@@ -2,12 +2,7 @@ import React from 'react';
 import {projectId, dataset} from '../client';
 
 interface Props {
-  block: {
-    text: string;
-    document?: any;
-    url?: string;
-    _type: string;
-  };
+  block: any
   className?: CSSModuleClasses[string];
   target?: string;
 }

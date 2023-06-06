@@ -22,7 +22,6 @@ const ICONS = [
   },
 ];
 
-const TABS = ['Terms of Use', 'Privacy Policy', 'Security', 'About Us', 'FAQ'];
 
 const Footer: React.FC = () => {
   return (
@@ -34,11 +33,6 @@ const Footer: React.FC = () => {
               {icon}
             </a>
           </li>
-        ))}
-      </ul>
-      <ul className={styles.footerTabs}>
-        {TABS.map((tab, idx) => (
-          <li key={idx}>{tab}</li>
         ))}
       </ul>
       <div className={styles.footerCredits}>

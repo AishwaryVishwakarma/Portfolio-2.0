@@ -15,8 +15,8 @@ const NAV_ITEMS: NavItems[] = [
     path: '/',
   },
   {
-    name: 'Service',
-    path: '/service',
+    name: 'Projects',
+    path: '/projects',
   },
   {
     name: 'Categories',
@@ -86,7 +86,7 @@ const Navbar: React.FC = () => {
     >
       <nav className={styles.navbar}>
         <div className={styles.navHeading}>
-          <NavLink to='/'>Welcome</NavLink>
+          <NavLink to='/'>Aishwary Vishwakarma</NavLink>
         </div>
         {isMobile ? (
           <div
