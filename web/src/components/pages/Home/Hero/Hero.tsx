@@ -17,36 +17,19 @@ const HomeHero: React.FC<HomeData['hero']> = (data) => {
   } = data ?? {};
 
   return (
-    <section className={styles.homeHero} id='#about'>
+    <section id='about' className={styles.homeHero}>
       <video autoPlay muted loop>
         <source src='stars.mp4' type='video/mp4' />
       </video>
       <div className={styles.leftContainer}>
         <div className={styles.heading}>
-          {title}{' '}
-          {/* <span>
-              {!isMobile ? (
-                <TypewriterComponent
-                  options={{
-                    strings: coloredText,
-                    autoStart: true,
-                    loop: true,
-                    deleteSpeed: 100,
-                  }}
-                />
-              ) : (
-                coloredText
-              )}
-            </span> */}
-          <span>{coloredText}</span>
+          {title} <span>{coloredText}</span>
         </div>
         <SanityRichText className={styles.description} block={description} />
         <div className={styles.ctaContainer}>
-          {/* <SanityLink block={cta1} className={styles.cvCta} /> */}
           <Link
-            href={resume.url}
+            href={resume.url ?? '/Resume.pdf'}
             className={styles.resume}
-            download
             target='_blank'
           >
             {resume?.text}

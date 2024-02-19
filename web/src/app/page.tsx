@@ -1,10 +1,8 @@
 import Layout from '@/components/Layout/Layout';
-import Navbar from '@/components/Navbar/Navbar';
 import HomeHero from '@/components/pages/Home/Hero/Hero';
-import SanityImage from '@/sanity/SanityImage';
+import HomeProjects from '@/components/pages/Home/Projects/Projects';
 import {getCmsData} from '@/utils/sanity';
 import type {TypedObject} from '@portabletext/types';
-import TypewriterComponent from 'typewriter-effect';
 
 import styles from './styles.module.scss';
 
@@ -16,6 +14,18 @@ export interface HomeData {
     image: any;
     resume: FileCta;
     cta2: LinkCta;
+  };
+  projects: {
+    heading: string;
+    projectCards: {
+      _key: string;
+      image: any;
+      title: string;
+      description: string;
+      techStack: string;
+      live: LinkCta;
+      github: LinkCta;
+    }[];
   };
 }
 
@@ -47,14 +57,44 @@ const HomePage = async () => {
           idAttribute
         }
       },
+      projects {
+        heading,
+        projectCards[] {
+          _key,
+          image {
+            image {
+              asset->{
+                ...,
+                metadata
+              }
+            },
+            alt,
+            name,
+          },
+          title,
+          description,
+          techStack,
+          live {
+            text,
+            url,
+            idAttribute
+          },
+          github {
+            text,
+            url,
+            idAttribute
+          }
+        }
+      }
     }`
   );
 
-  const {hero} = (data as HomeData) ?? {};
+  const {hero, projects} = (data as HomeData) ?? {};
 
   return (
     <Layout className={styles.homePage}>
       <HomeHero {...hero} />
+      <HomeProjects {...projects} />
     </Layout>
   );
 };

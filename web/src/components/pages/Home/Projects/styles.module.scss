@@ -1,0 +1,220 @@
+@mixin flexbox($direction: row, $align: center, $justify: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+.projectsWrapper {
+  @include flexbox(column, flex-start, flex-start);
+  padding: 80px 10%;
+  gap: 40px;
+
+  @media (max-width: "800px") {
+    padding: 30px;
+  }
+
+  .heading {
+    font-family: var(--rubik);
+    color: var(--text-color);
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+
+    @media (max-width: "800px") {
+      text-align: center;
+      font-size: 26px;
+    }
+  }
+
+  .cardsContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 30px;
+    width: 100%;
+
+    @media (max-width: "800px") {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+}
+
+.card {
+  --br: 5px;
+  background: var(--light-background);
+  max-width: 350px;
+  border-radius: var(--br);
+  opacity: 0;
+  transform: translateX(-150px);
+  overflow: hidden;
+
+  @media (max-width: "800px") {
+    max-width: 100%;
+  }
+
+  &:after {
+    display: block;
+    content: "";
+    height: 100px;
+    width: 1px;
+    position: absolute;
+    left: 0;
+    top: 65%;
+    background: linear-gradient(transparent, var(--primary-color), transparent);
+    opacity: 0;
+    transition: all 600ms ease;
+  }
+
+  &:hover:after {
+    top: 25%;
+    opacity: 1;
+  }
+
+  .projectImage {
+    object-fit: cover;
+    transition: all 0.3s linear;
+    opacity: 0.6;
+    width: 100%;
+    height: 200px;
+    border-radius: var(--br) var(--br) 0 0;
+
+    @media (max-width: "800px") {
+      opacity: 1;
+      height: 180px;
+    }
+  }
+
+  .details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .titleContainer {
+      width: max-content;
+      font-family: Nunito;
+      font-size: 26px;
+      color: var(--text-color);
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      position: relative;
+      background: transparent;
+      opacity: 0.9;
+      user-select: none;
+      z-index: 1;
+
+      @media (max-width: "800px") {
+        font-size: 24px;
+        letter-spacing: 1px;
+      }
+
+      .title {
+        font-family: var(--inconsolata);
+        font-size: 30px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .titlebase {
+        position: absolute;
+        width: 100%;
+        height: 8px;
+        background: var(--primary-color);
+        bottom: 0;
+        transition: all 0.3s;
+        z-index: 0;
+        opacity: 0.8;
+
+        @media (max-width: "800px") {
+          height: 6px;
+        }
+      }
+    }
+
+    .description {
+      font-family: var(--nunito);
+      font-size: 17.5px;
+      color: var(--text-color);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      line-clamp: 2;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      font-weight: 400;
+    }
+
+    .techStack {
+      font-family: var(--nunito);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--primary-color);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      line-clamp: 2;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      height: 34px;
+    }
+
+    .ctaContainer {
+      display: flex;
+      gap: 20px;
+
+      & > a {
+        text-decoration: none;
+        padding: 8px 20px;
+        border-radius: 5px;
+        font-family: var(--nunito);
+        font-size: 17.5px;
+        font-weight: 500;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .liveUrl {
+        background: var(--primary-color);
+        color: black;
+
+        &:hover {
+          box-shadow: 0 1px 8px 0 var(--primary-color);
+          transform: translateY(-5px);
+        }
+      }
+
+      .github {
+        background: var(--secondary-color);
+        color: var(--text-color);
+
+        &:hover {
+          background: white;
+          color: #000000;
+        }
+      }
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      .titlebase {
+        height: 12px !important;
+      }
+
+      .projectImage {
+        transform: scale(1.02);
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// Animation which will trigger when the card is in view
+.fadeInFromLeft {
+  animation: fade-in-from-left 0.8s ease-in-out forwards;
+
+  @keyframes fade-in-from-left {
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}

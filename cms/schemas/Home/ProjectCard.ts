@@ -19,6 +19,11 @@ export default {
       type: 'string',
     },
     {
+      title: 'Tech Stack',
+      name: 'techStack',
+      type: 'string',
+    },
+    {
       title: 'Live',
       name: 'live',
       type: 'linkCTA',

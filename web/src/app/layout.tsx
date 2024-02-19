@@ -1,5 +1,11 @@
 import type {Metadata} from 'next';
-import {Dancing_Script, Lato, Nunito, Rubik} from 'next/font/google';
+import {
+  Dancing_Script,
+  Inconsolata,
+  Lato,
+  Nunito,
+  Rubik,
+} from 'next/font/google';
 
 import './globals.scss';
 
@@ -27,6 +33,12 @@ const rubik = Rubik({
   variable: '--rubik',
 });
 
+const inconsolata = Inconsolata({
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--inconsolata',
+});
+
 export const metadata: Metadata = {
   title: 'Aishwary Vishwakarma Portfolio',
   description: 'Created using NextJs backed by Sanity studio',
@@ -41,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${dancingScript.variable} ${lato.variable} ${nunito.variable} ${rubik.variable}`}
+        className={`${dancingScript.variable} ${lato.variable} ${nunito.variable} ${rubik.variable} ${inconsolata.variable}`}
       >
         {children}
       </body>
