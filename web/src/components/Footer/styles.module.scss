@@ -1,0 +1,66 @@
+@mixin flexbox($direction: row, $align: center, $justify: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+.footerWrapper {
+  @include flexbox(column, center, flex-start);
+  font-family: var(--rubik);
+  width: 100%;
+  color: var(--text-color);
+  gap: 35px;
+  padding: 50px 80px 30px 80px;
+  background-color: var(--background);
+
+  @media (max-width: "800px") {
+    padding: 30px;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .footerLinks {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+
+    > li {
+      font-size: 32px;
+      list-style: none;
+      cursor: pointer;
+
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  .footerCredits {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+
+    * {
+      flex-shrink: 0;
+    }
+
+    > span {
+      color: #e41b17;
+    }
+
+    @media (max-width: "800px") {
+      justify-content: center;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  // user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+html,
+body {
+  height: 100%;
+  background: #000;
+}
+
+.layouted {
+  display: grid;
+  grid-template-columns: 1fr calc(min(80rem, 100%)) 1fr;
+
+  > * {
+    grid-column: 2;
+  }
+}
+
+:root {
+  --text-color: #f4f5d6;
+  --default-background: #0c0c03;
+  --light-background: #16170f;
+  --primary-color: #7ddcde;
+  --secondary-color: #000000;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Project Cards animation */
+.delay0 {
+  animation-duration: 0.8s !important;
+}
+
+.delay1 {
+  animation-duration: 1s !important;
+}
+
+.delay2 {
+  animation-duration: 1.2s !important;
+}
+
+@media (max-width: 800px) {
+  .hideOnMobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 800px) {
+  .hideOnDesktop {
+    display: none !important;
+  }
+}
