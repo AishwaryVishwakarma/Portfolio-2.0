@@ -7,7 +7,7 @@
 
 .projectsWrapper {
   @include flexbox(column, flex-start, flex-start);
-  padding: 80px 10%;
+  padding: 80px 8%;
   gap: 40px;
 
   @media (max-width: "800px") {
@@ -51,6 +51,19 @@
 
   @media (max-width: "800px") {
     max-width: 100%;
+    transition-duration: 0.8s !important;
+  }
+
+  &:nth-child(3n + 1) {
+    transition-duration: 0.8s;
+  }
+
+  &:nth-child(3n + 2) {
+    transition-duration: 1s;
+  }
+
+  &:nth-child(3n + 3) {
+    transition-duration: 1.2s;
   }
 
   &:after {
@@ -208,13 +221,7 @@
 }
 
 // Animation which will trigger when the card is in view
-.fadeInFromLeft {
-  animation: fade-in-from-left 0.8s ease-in-out forwards;
-
-  @keyframes fade-in-from-left {
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
+.slideIn {
+  opacity: 1;
+  transform: translateX(0);
 }

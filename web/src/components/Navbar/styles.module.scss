@@ -13,7 +13,7 @@ $animation-timing: 0.2s;
   z-index: 99999;
   @include flexbox(row, center, flex-start);
   color: var(--text-color);
-  padding: 20px 10% 15px;
+  padding: 20px 8% 15px;
   background: rgba(12, 12, 3, 0.1);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);

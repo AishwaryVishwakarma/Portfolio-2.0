@@ -38,15 +38,15 @@ body {
 
 /* Project Cards animation */
 .delay0 {
-  animation-duration: 0.8s !important;
+  transition-duration: 0.8s !important;
 }
 
 .delay1 {
-  animation-duration: 1s !important;
+  transition-duration: 1s !important;
 }
 
 .delay2 {
-  animation-duration: 1.2s !important;
+  transition-duration: 1.2s !important;
 }
 
 @media (max-width: 800px) {
