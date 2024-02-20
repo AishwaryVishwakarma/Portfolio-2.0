@@ -5,7 +5,7 @@
   flex-direction: $direction;
 }
 
-.homeHero {
+.hero {
   position: relative;
   color: var(--text-color);
   display: grid;
@@ -17,7 +17,7 @@
   isolation: isolate;
 
   @media (max-width: 800px) {
-    @include flexbox(column-reverse, center, center);
+    @include flexbox(column, center, center);
   }
 
   video {
@@ -29,9 +29,42 @@
     object-fit: cover;
     pointer-events: none;
     z-index: 0;
+    opacity: 0.5;
+    filter: blur(1px);
   }
 
-  .leftContainer {
+  .profileImage {
+    height: 350px;
+    width: 350px;
+    aspect-ratio: 1/1;
+    padding: 5px;
+    object-fit: cover;
+    border-radius: 50%;
+    object-position: -127px;
+    background: linear-gradient(45deg, var(--primary-color), var(--text-color));
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    animation: fade-in 0.5s ease-in-out forwards;
+
+    &:hover {
+      box-shadow: 0 0 20px 2px var(--primary-color);
+    }
+
+    @keyframes fade-in {
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: "800px") {
+      height: 200px;
+      width: 200px;
+      opacity: 1;
+      object-position: -50px;
+    }
+  }
+
+  .rightContainer {
     display: flex;
     flex-direction: column;
     max-width: 650px;
@@ -150,37 +183,6 @@
           color: #000000;
         }
       }
-    }
-  }
-
-  .profileImage {
-    height: 400px;
-    width: 400px;
-    padding: 5px;
-    object-fit: cover;
-    border-radius: 10px;
-    object-position: -127px;
-    background: linear-gradient(45deg, var(--primary-color), var(--text-color));
-    transition: all 0.2s ease-in-out;
-    opacity: 0;
-    animation: fade-in-border-radius 0.5s ease-in-out forwards;
-
-    &:hover {
-      box-shadow: 0 0 20px 2px var(--primary-color);
-    }
-
-    @keyframes fade-in-border-radius {
-      100% {
-        opacity: 1;
-        border-radius: 50%;
-      }
-    }
-
-    @media (max-width: "800px") {
-      height: 200px;
-      width: 200px;
-      opacity: 1;
-      object-position: -50px;
     }
   }
 }

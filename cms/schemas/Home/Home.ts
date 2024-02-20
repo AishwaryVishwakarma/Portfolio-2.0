@@ -9,6 +9,11 @@ export default {
       type: 'homeHero',
     },
     {
+      title: 'Experience',
+      name: 'experience',
+      type: 'experience',
+    },
+    {
       title: 'Projects',
       name: 'projects',
       type: 'projects',

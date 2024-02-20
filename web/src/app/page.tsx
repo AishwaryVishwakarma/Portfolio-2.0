@@ -1,6 +1,7 @@
 import Layout from '@/components/Layout/Layout';
-import HomeHero from '@/components/pages/Home/Hero/Hero';
-import HomeProjects from '@/components/pages/Home/Projects/Projects';
+import Experience from '@/components/pages/Home/Experience/Experience';
+import Hero from '@/components/pages/Home/Hero/Hero';
+import Projects from '@/components/pages/Home/Projects/Projects';
 import {getCmsData} from '@/utils/sanity';
 import type {TypedObject} from '@portabletext/types';
 
@@ -14,6 +15,15 @@ export interface HomeData {
     image: any;
     resume: FileCta;
     cta2: LinkCta;
+  };
+  experience: {
+    heading: string;
+    experienceCards: {
+      _key: string;
+      title: string;
+      date: string;
+      description: TypedObject;
+    }[];
   };
   projects: {
     heading: string;
@@ -57,6 +67,15 @@ const HomePage = async () => {
           idAttribute
         }
       },
+      experience {
+        heading,
+        experienceCards[] {
+          _key,
+          title,
+          date,
+          description,
+        }
+      },
       projects {
         heading,
         projectCards[] {
@@ -89,12 +108,13 @@ const HomePage = async () => {
     }`
   );
 
-  const {hero, projects} = (data as HomeData) ?? {};
+  const {hero, experience, projects} = (data as HomeData) ?? {};
 
   return (
     <Layout className={styles.homePage}>
-      <HomeHero {...hero} />
-      <HomeProjects {...projects} />
+      <Hero {...hero} />
+      <Experience {...experience} />
+      <Projects {...projects} />
     </Layout>
   );
 };

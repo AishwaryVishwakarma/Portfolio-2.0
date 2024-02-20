@@ -6,7 +6,7 @@ import React from 'react';
 
 import styles from './styles.module.scss';
 
-const HomeHero: React.FC<HomeData['hero']> = (data) => {
+const Hero: React.FC<HomeData['hero']> = (data) => {
   const {
     title,
     coloredText,
@@ -17,11 +17,12 @@ const HomeHero: React.FC<HomeData['hero']> = (data) => {
   } = data ?? {};
 
   return (
-    <section id='about' className={styles.homeHero}>
+    <section id='about' className={styles.hero}>
       <video autoPlay muted loop>
         <source src='stars.mp4' type='video/mp4' />
       </video>
-      <div className={styles.leftContainer}>
+      <SanityImage imageBlock={profileImage} className={styles.profileImage} />
+      <div className={styles.rightContainer}>
         <div className={styles.heading}>
           {title} <span>{coloredText}</span>
         </div>
@@ -39,9 +40,8 @@ const HomeHero: React.FC<HomeData['hero']> = (data) => {
           </Link>
         </div>
       </div>
-      <SanityImage imageBlock={profileImage} className={styles.profileImage} />
     </section>
   );
 };
 
-export default HomeHero;
+export default Hero;

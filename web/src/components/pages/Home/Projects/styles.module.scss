@@ -48,6 +48,7 @@
   opacity: 0;
   transform: translateX(-150px);
   overflow: hidden;
+  list-style: none;
 
   @media (max-width: "800px") {
     max-width: 100%;
@@ -106,7 +107,6 @@
 
     .titleContainer {
       width: max-content;
-      font-family: Nunito;
       font-size: 26px;
       color: var(--text-color);
       font-weight: 500;

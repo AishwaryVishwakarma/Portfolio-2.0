@@ -1,7 +1,6 @@
 'use client';
 
 import {HomeData} from '@/app/page';
-import useMediaQuery from '@/hooks/useMediaQuery';
 import SanityImage from '@/sanity/SanityImage';
 import Link from 'next/link';
 import React from 'react';
@@ -9,12 +8,10 @@ import {TextGlitchEffect} from 'react-text-glitch-effect';
 
 import styles from './styles.module.scss';
 
-const HomeProjects: React.FC<HomeData['projects']> = (data) => {
-  const isMobile = useMediaQuery('(max-width: 800px)');
-
+const Projects: React.FC<HomeData['projects']> = (data) => {
   const {heading, projectCards = []} = data ?? {};
 
-  const cardsContainerRef = React.useRef<HTMLDivElement | null>(null);
+  const cardsContainerRef = React.useRef<HTMLUListElement | null>(null);
 
   React.useEffect(() => {
     const cards = cardsContainerRef.current?.childNodes ?? [];
@@ -37,7 +34,7 @@ const HomeProjects: React.FC<HomeData['projects']> = (data) => {
     );
 
     cards.forEach((card) => {
-      observer.observe(card as HTMLDivElement);
+      observer.observe(card as HTMLLIElement);
     });
 
     return () => {
@@ -48,12 +45,12 @@ const HomeProjects: React.FC<HomeData['projects']> = (data) => {
   return (
     <section id='projects' className={styles.projectsWrapper}>
       <div className={styles.heading}>{heading}</div>
-      <div ref={cardsContainerRef} className={styles.cardsContainer}>
+      <ul ref={cardsContainerRef} className={styles.cardsContainer}>
         {projectCards.map((card, idx) => {
           const {title, description, techStack, image, live, github, _key} =
             card ?? {};
           return (
-            <div className={styles.card} key={_key}>
+            <li className={styles.card} key={_key}>
               <SanityImage imageBlock={image} className={styles.projectImage} />
               <div className={styles.details}>
                 <div className={styles.titleContainer}>
@@ -90,12 +87,12 @@ const HomeProjects: React.FC<HomeData['projects']> = (data) => {
                   )}
                 </div>
               </div>
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </section>
   );
 };
 
-export default HomeProjects;
+export default Projects;
