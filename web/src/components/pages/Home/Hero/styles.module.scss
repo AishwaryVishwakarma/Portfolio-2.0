@@ -9,15 +9,16 @@
   position: relative;
   color: var(--text-color);
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: auto 1fr;
   padding: 100px 8%;
   min-height: 100svh;
   place-items: center;
-  gap: 50px;
+  gap: 120px;
   isolation: isolate;
 
   @media (max-width: 800px) {
     @include flexbox(column, center, center);
+    gap: 40px;
   }
 
   video {
@@ -67,7 +68,6 @@
   .rightContainer {
     display: flex;
     flex-direction: column;
-    max-width: 650px;
     gap: 20px;
     position: relative;
     z-index: 1;

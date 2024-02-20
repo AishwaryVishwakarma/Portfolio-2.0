@@ -24,7 +24,8 @@ const Hero: React.FC<HomeData['hero']> = (data) => {
       <SanityImage imageBlock={profileImage} className={styles.profileImage} />
       <div className={styles.rightContainer}>
         <div className={styles.heading}>
-          {title} <span>{coloredText}</span>
+          {title} <br />
+          <span>{coloredText}</span>
         </div>
         <SanityRichText className={styles.description} block={description} />
         <div className={styles.ctaContainer}>
