@@ -16,13 +16,13 @@ const TABS = [
     name: 'Experience',
     path: '#experience',
   },
-  {
-    name: 'Skills',
-    path: '#skills',
-  },
+  // {
+  //   name: 'Skills',
+  //   path: '#skills',
+  // },
   {
     name: 'Projects',
-    path: '#projects',
+    path: 'https://www.linkedin.com/in/aishwary-vishwakarma-b613601b3/',
   },
   {
     name: 'Contact',
