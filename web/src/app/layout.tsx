@@ -1,3 +1,4 @@
+import {Analytics} from '@vercel/analytics/react';
 import type {Metadata} from 'next';
 import {
   Dancing_Script,
@@ -56,6 +57,7 @@ export default function RootLayout({
         className={`${dancingScript.variable} ${lato.variable} ${nunito.variable} ${rubik.variable} ${inconsolata.variable}`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
