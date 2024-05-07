@@ -22,11 +22,11 @@ const TABS = [
   // },
   {
     name: 'Projects',
-    path: 'https://www.linkedin.com/in/aishwary-vishwakarma-b613601b3/',
+    path: '#projects',
   },
   {
     name: 'Contact',
-    path: '#contact',
+    path: 'https://www.linkedin.com/in/aishwary-vishwakarma-b613601b3/',
   },
 ];
 
