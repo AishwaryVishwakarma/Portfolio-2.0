@@ -5,11 +5,10 @@
     "dbaeumer.vscode-eslint",
     "ms-vscode.vscode-typescript-next",
     "esbenp.prettier-vscode",
-    "sibiraj-s.vscode-scss-formatter",
     "vscode-icons-team.vscode-icons",
     "eamodio.gitlens",
-    "dzhavat.bracket-pair-toggler",
-    "ecmel.vscode-html-css",
-    "GraphQL.vscode-graphql-syntax"
+    "GraphQL.vscode-graphql-syntax",
+    "Orta.vscode-jest",
+    "dbaeumer.vscode-eslint"
   ]
 }
