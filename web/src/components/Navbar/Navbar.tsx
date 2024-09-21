@@ -37,10 +37,7 @@ const Navbar: React.FC = () => {
 
   const [musicPlaying, setMusicPlaying] = React.useState(false);
 
-  const [hamState, setHamState] = React.useState({
-    isOpen: false,
-    isClicked: false,
-  });
+  const [hamOpen, setHamOpen] = React.useState(false);
 
   React.useEffect((): void => {
     musicPlaying ? musicRef.current?.play() : musicRef.current?.pause();
@@ -54,12 +51,7 @@ const Navbar: React.FC = () => {
             <Link
               href={path}
               className={pathname === path ? styles.active : ''}
-              onClick={(): void =>
-                setHamState((prev): typeof prev => ({
-                  ...prev,
-                  isOpen: false,
-                }))
-              }
+              onClick={() => setHamOpen(false)}
             >
               {name}
             </Link>
@@ -93,29 +85,16 @@ const Navbar: React.FC = () => {
       {/* Mobile navbar with hame menu */}
       <div
         className={`${styles.hamButton} hideOnDesktop`}
-        onClick={(): void => {
-          setHamState((prev): typeof prev => ({
-            isOpen: !prev.isOpen,
-            isClicked: true,
-          }));
-        }}
-        data-is-open={((): boolean | null => {
-          if (!hamState.isClicked) return null;
-          return hamState.isOpen;
-        })()}
+        onClick={() => setHamOpen((prevState): typeof prevState => !prevState)}
+        data-is-open={hamOpen}
       >
         <div className={styles.hamLine}></div>
         <div className={styles.hamLine}></div>
         <div className={styles.hamLine}></div>
       </div>
-      {hamState.isOpen && (
-        <div
-          className={`${styles.hamMenu} hideOnDesktop`}
-          data-is-open={hamState.isOpen}
-        >
-          <Tabs className='hideOnDesktop' />
-        </div>
-      )}
+      <div className={`${styles.hamMenu} hideOnDesktop`} data-is-open={hamOpen}>
+        <Tabs className='hideOnDesktop' />
+      </div>
     </nav>
   );
 };

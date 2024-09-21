@@ -19,7 +19,7 @@ $animation-timing: 0.2s;
   -webkit-backdrop-filter: blur(8px);
   width: 100%;
 
-  @media (max-width: "800px") {
+  @media (max-width: '800px') {
     padding: 20px 30px;
     background: var(--default-background);
   }
@@ -32,7 +32,7 @@ $animation-timing: 0.2s;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 
-    @media (max-width: "800px") {
+    @media (max-width: '800px') {
       font-size: 24px;
       margin-inline: auto;
     }
@@ -57,7 +57,7 @@ $animation-timing: 0.2s;
       }
     }
 
-    &[data-is-open="true"] {
+    &[data-is-open='true'] {
       .hamLine:first-child {
         animation-name: rotate-clockwise;
       }
@@ -71,7 +71,7 @@ $animation-timing: 0.2s;
       }
     }
 
-    &[data-is-open="false"] {
+    &[data-is-open='false'] {
       .hamLine:first-child {
         animation-name: rotate-back-anti-clockwise;
       }
@@ -96,11 +96,13 @@ $animation-timing: 0.2s;
     width: 100%;
     overflow: scroll;
     overscroll-behavior: contain;
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
 
-    &[data-is-open="true"] {
-      transform: translateX(-100%);
-      opacity: 0;
-      animation: fade-in-left 0.3s ease-in-out forwards;
+    &[data-is-open='true'] {
+      transform: translateX(0);
+      visibility: visible;
     }
   }
 
@@ -132,7 +134,7 @@ $animation-timing: 0.2s;
         transform: translateY(-3px);
       }
 
-      @media (max-width: "800px") {
+      @media (max-width: '800px') {
         padding: 10px 0;
       }
     }
@@ -144,7 +146,7 @@ $animation-timing: 0.2s;
       margin-left: 10px;
     }
 
-    @media (max-width: "800px") {
+    @media (max-width: '800px') {
       flex-direction: column;
       align-items: flex-start;
     }
