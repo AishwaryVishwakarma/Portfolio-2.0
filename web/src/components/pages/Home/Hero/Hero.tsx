@@ -18,7 +18,7 @@ const Hero: React.FC<HomeData['hero']> = (data) => {
 
   return (
     <section id='about' className={styles.hero}>
-      <video autoPlay muted loop>
+      <video autoPlay muted loop playsInline>
         <source src='stars.mp4' type='video/mp4' />
       </video>
       <SanityImage imageBlock={profileImage} className={styles.profileImage} />

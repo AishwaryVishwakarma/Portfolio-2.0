@@ -68,7 +68,7 @@ const Experience: React.FC<HomeData['experience']> = (data) => {
             );
           })}
         </ul>
-        <video autoPlay muted loop className={styles.earth}>
+        <video autoPlay muted loop playsInline className={styles.earth}>
           <source src='earth.mp4' type='video/mp4' />
         </video>
       </div>
