@@ -41,9 +41,42 @@ const inconsolata = Inconsolata({
 });
 
 export const metadata: Metadata = {
-  title: 'Aishwary Vishwakarma Portfolio',
-  description: 'Created using NextJs backed by Sanity studio',
+  title: 'Aishwary Vishwakarma: Welcome To My Portfolio',
+  description:
+    'Recent BE graduate who have a great interest in Web development. I am a self taught developer and have a great interest in learning new technologies. A very good team player with great problem-solving ability and currently sitting in a dark-room with coffee and looking into dark-theme VS code.',
   creator: 'Aishwary Vishwakarma',
+  keywords:
+    'Aishwary Vishwakarma, Portfolio, Web Developer, React, Next.js, JavaScript, TypeScript, CSS, HTML',
+  applicationName: 'Aishwary Vishwakarma Portfolio',
+  authors: [
+    {
+      name: 'Aishwary Vishwakarma',
+      url: 'https://aishwary.vercel.app/',
+    },
+  ],
+  category: 'Portfolio',
+  abstract:
+    'Recent BE graduate who have a great interest in Web development. I am a self taught developer and have a great interest in learning new technologies. A very good team player with great problem-solving ability and currently sitting in a dark-room with coffee and looking into dark-theme VS code.',
+  metadataBase: new URL('https://aishwary.vercel.app/'),
+  openGraph: {
+    title: 'Aishwary Vishwakarma: Welcome To My Portfolio',
+    description:
+      'Recent BE graduate who have a great interest in Web development. I am a self taught developer and have a great interest in learning new technologies. A very good team player with great problem-solving ability and currently sitting in a dark-room with coffee and looking into dark-theme VS code.',
+    type: 'website',
+    url: 'https://aishwary.vercel.app/',
+    siteName: 'Aishwary Vishwakarma',
+    countryName: 'India',
+    locale: 'en_IN',
+    emails: ['aishwaryvishwakarma23@gmail.com'],
+  },
+  twitter: {
+    title: 'Aishwary Vishwakarma: Welcome To My Portfolio',
+    description:
+      'Recent BE graduate who have a great interest in Web development. I am a self taught developer and have a great interest in learning new technologies. A very good team player with great problem-solving ability and currently sitting in a dark-room with coffee and looking into dark-theme VS code.',
+    card: 'summary_large_image',
+    creator: 'Aishwary Vishwakarma',
+  },
+  publisher: 'Aishwary Vishwakarma',
 };
 
 export default function RootLayout({
