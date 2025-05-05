@@ -64,6 +64,11 @@ export const metadata: Metadata = {
       'Recent BE graduate who have a great interest in Web development. I am a self taught developer and have a great interest in learning new technologies. A very good team player with great problem-solving ability and currently sitting in a dark-room with coffee and looking into dark-theme VS code.',
     type: 'website',
     url: 'https://aishwary.vercel.app/',
+    images: [
+      {
+        url: '/Self.JPEG',
+      },
+    ],
     siteName: 'Aishwary Vishwakarma',
     countryName: 'India',
     locale: 'en_IN',
@@ -75,6 +80,11 @@ export const metadata: Metadata = {
       'Recent BE graduate who have a great interest in Web development. I am a self taught developer and have a great interest in learning new technologies. A very good team player with great problem-solving ability and currently sitting in a dark-room with coffee and looking into dark-theme VS code.',
     card: 'summary_large_image',
     creator: 'Aishwary Vishwakarma',
+    images: [
+      {
+        url: '/Self.JPEG',
+      },
+    ],
   },
   publisher: 'Aishwary Vishwakarma',
 };
