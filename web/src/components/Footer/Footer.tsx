@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import React from 'react';
-import {AiFillGithub} from 'react-icons/ai';
-import {FiInstagram, FiLinkedin, FiTwitter} from 'react-icons/fi';
+import { AiFillGithub } from 'react-icons/ai';
+import { FiInstagram, FiLinkedin, FiTwitter } from 'react-icons/fi';
+
+
 
 import styles from './styles.module.scss';
+
 
 const LINKS = [
   {
@@ -20,7 +23,7 @@ const LINKS = [
   },
   {
     icon: <FiTwitter />,
-    path: 'https://twitter.com/AishwaryVishwa3',
+    path: 'https://x.com/ezzy_lemon',
   },
 ];
 
