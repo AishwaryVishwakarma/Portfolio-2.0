@@ -9,7 +9,7 @@ $bullet-size: 20px;
 
 .experienceWrapper {
   @include flexbox(column, flex-start, flex-start);
-  padding: 80px 8%;
+  padding: 80px var(--gutter);
   gap: 40px;
   position: relative;
   isolation: isolate;

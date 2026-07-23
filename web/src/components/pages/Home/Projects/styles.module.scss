@@ -7,7 +7,7 @@
 
 .projectsWrapper {
   @include flexbox(column, flex-start, flex-start);
-  padding: 80px 8%;
+  padding: 80px var(--gutter);
   gap: 40px;
 
   @media (max-width: "800px") {
@@ -58,8 +58,8 @@
 .card {
   --br: 10px;
   background: var(--glass-bg);
-  backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
   max-width: 350px;
   border-radius: var(--br);

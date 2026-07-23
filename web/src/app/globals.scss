@@ -73,6 +73,17 @@ section[id] {
   --glass-border: rgba(244, 245, 214, 0.12);
   --glass-highlight: rgba(255, 255, 255, 0.05);
   --glass-blur: 18px;
+  --nav-blur: 10px;
+  // Opaque cool-dark surface for solid nav/menu (mobile), matching the
+  // glass tint instead of the muddy warm near-black.
+  --nav-surface: #161b21;
+
+  /* Content cap: keeps section content centred on ultra-wide screens.
+     Below ~1523px the 8% gutter wins; above it, content caps at
+     --content-max and the extra space becomes side margin (not gaps
+     between elements). Full-bleed background videos ignore this. */
+  --content-max: 80rem;
+  --gutter: max(8%, calc((100% - var(--content-max)) / 2));
 }
 
 ::-webkit-scrollbar {
