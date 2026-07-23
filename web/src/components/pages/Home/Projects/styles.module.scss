@@ -21,10 +21,24 @@
     font-weight: 500;
     letter-spacing: 1.2px;
 
+    &::after {
+      content: "";
+      display: block;
+      width: 56px;
+      height: 4px;
+      margin-top: 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary-color), transparent);
+    }
+
     @media (max-width: "800px") {
       width: 100%;
       text-align: center;
       font-size: 26px;
+
+      &::after {
+        margin-inline: auto;
+      }
     }
   }
 
@@ -42,8 +56,11 @@
 }
 
 .card {
-  --br: 5px;
-  background: var(--light-background);
+  --br: 10px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
   max-width: 350px;
   border-radius: var(--br);
   opacity: 0;

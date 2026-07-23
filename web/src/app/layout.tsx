@@ -1,5 +1,5 @@
 import {Analytics} from '@vercel/analytics/react';
-import type {Metadata} from 'next';
+import type {Metadata, Viewport} from 'next';
 import {
   Dancing_Script,
   Inconsolata,
@@ -64,11 +64,6 @@ export const metadata: Metadata = {
       'Recent BE graduate who have a great interest in Web development. I am a self taught developer and have a great interest in learning new technologies. A very good team player with great problem-solving ability and currently sitting in a dark-room with coffee and looking into dark-theme VS code.',
     type: 'website',
     url: 'https://aishwary.vercel.app/',
-    images: [
-      {
-        url: '/Self.JPEG',
-      },
-    ],
     siteName: 'Aishwary Vishwakarma',
     countryName: 'India',
     locale: 'en_IN',
@@ -80,13 +75,27 @@ export const metadata: Metadata = {
       'Recent BE graduate who have a great interest in Web development. I am a self taught developer and have a great interest in learning new technologies. A very good team player with great problem-solving ability and currently sitting in a dark-room with coffee and looking into dark-theme VS code.',
     card: 'summary_large_image',
     creator: 'Aishwary Vishwakarma',
-    images: [
-      {
-        url: '/Self.JPEG',
-      },
-    ],
   },
   publisher: 'Aishwary Vishwakarma',
+};
+
+export const viewport: Viewport = {
+  themeColor: '#0c0c03',
+};
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Aishwary Vishwakarma',
+  url: 'https://aishwary.vercel.app/',
+  jobTitle: 'Web Developer',
+  email: 'aishwaryvishwakarma23@gmail.com',
+  sameAs: [
+    'https://github.com/AishwaryVishwakarma',
+    'https://www.linkedin.com/in/aishwary-vishwakarma-b613601b3/',
+    'https://x.com/ezzy_lemon',
+  ],
+  knowsAbout: ['React', 'Next.js', 'JavaScript', 'TypeScript', 'CSS', 'HTML'],
 };
 
 export default function RootLayout({
@@ -99,6 +108,10 @@ export default function RootLayout({
       <body
         className={`${dancingScript.variable} ${lato.variable} ${nunito.variable} ${rubik.variable} ${inconsolata.variable}`}
       >
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{__html: JSON.stringify(personJsonLd)}}
+        />
         {children}
         <Analytics />
       </body>

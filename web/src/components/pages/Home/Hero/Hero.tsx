@@ -26,10 +26,10 @@ const Hero: React.FC<HomeData['hero']> = (data) => {
         priority
       />
       <div className={styles.rightContainer}>
-        <div className={styles.heading}>
+        <h1 className={styles.heading}>
           {title} <br />
           <span>{coloredText}</span>
-        </div>
+        </h1>
         <SanityRichText className={styles.description} block={description} />
         <div className={styles.ctaContainer}>
           <Link

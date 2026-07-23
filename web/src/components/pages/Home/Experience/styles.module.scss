@@ -28,10 +28,24 @@ $bullet-size: 20px;
     position: relative;
     z-index: 1;
 
+    &::after {
+      content: '';
+      display: block;
+      width: 56px;
+      height: 4px;
+      margin-top: 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary-color), transparent);
+    }
+
     @media (max-width: '800px') {
       width: 100%;
       text-align: center;
       font-size: 26px;
+
+      &::after {
+        margin-inline: auto;
+      }
     }
   }
 
@@ -39,8 +53,9 @@ $bullet-size: 20px;
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 120px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 80px;
     padding-left: calc($bullet-size / 2);
 
     @media (max-width: 800px) {
@@ -49,11 +64,11 @@ $bullet-size: 20px;
     }
 
     .earth {
-      width: 450px;
+      width: clamp(300px, 32vw, 420px);
       aspect-ratio: 1/1;
       object-fit: cover;
       position: sticky;
-      top: 120px;
+      top: 140px;
 
       @media (max-width: 800px) {
         width: 90%;

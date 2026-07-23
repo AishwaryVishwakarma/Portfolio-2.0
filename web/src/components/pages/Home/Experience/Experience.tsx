@@ -18,7 +18,7 @@ const Experience: React.FC<HomeData['experience']> = (data) => {
 
   return (
     <section id='experience' className={styles.experienceWrapper}>
-      <div className={styles.heading}>{heading}</div>
+      <h2 className={styles.heading}>{heading}</h2>
       <div className={styles.details}>
         <ul ref={cardsContainerRef} className={styles.cardsContainer}>
           {experienceCards.map((card) => {

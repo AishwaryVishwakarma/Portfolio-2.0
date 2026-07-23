@@ -5,6 +5,8 @@ import {
   Home,
   ProjectCard,
   Projects,
+  SkillCategory,
+  Skills,
 } from './Home';
 import {FileCTA, ImageObject, LinkCTA} from './objects';
 
@@ -13,6 +15,8 @@ export const schemaTypes = [
   Home,
   ExperienceCard,
   Experience,
+  SkillCategory,
+  Skills,
   ProjectCard,
   Projects,
   FileCTA,

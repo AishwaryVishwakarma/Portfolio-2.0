@@ -15,10 +15,10 @@ const TABS = [
     name: 'Experience',
     path: '#experience',
   },
-  // {
-  //   name: 'Skills',
-  //   path: '#skills',
-  // },
+  {
+    name: 'Skills',
+    path: '#skills',
+  },
   {
     name: 'Projects',
     path: '#projects',

@@ -18,7 +18,7 @@ const Projects: React.FC<HomeData['projects']> = (data) => {
 
   return (
     <section id='projects' className={styles.projectsWrapper}>
-      <div className={styles.heading}>{heading}</div>
+      <h2 className={styles.heading}>{heading}</h2>
       <ul ref={cardsContainerRef} className={styles.cardsContainer}>
         {projectCards.map((card, idx) => {
           const {title, description, techStack, image, live, github, _key} =

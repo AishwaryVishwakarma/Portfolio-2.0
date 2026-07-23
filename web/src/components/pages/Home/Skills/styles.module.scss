@@ -1,0 +1,114 @@
+@mixin flexbox($direction: row, $align: center, $justify: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+.skillsWrapper {
+  @include flexbox(column, flex-start, flex-start);
+  padding: 80px 8%;
+  gap: 40px;
+  position: relative;
+  isolation: isolate;
+
+  @media (max-width: 800px) {
+    padding: 30px;
+  }
+
+  .heading {
+    font-family: var(--rubik);
+    color: var(--text-color);
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 56px;
+      height: 4px;
+      margin-top: 12px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary-color), transparent);
+    }
+
+    @media (max-width: 800px) {
+      width: 100%;
+      text-align: center;
+      font-size: 26px;
+
+      &::after {
+        margin-inline: auto;
+      }
+    }
+  }
+
+  .cardsContainer {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    width: 100%;
+  }
+}
+
+.card {
+  @include flexbox(column, flex-start, flex-start);
+  gap: 18px;
+  padding: 28px;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease,
+    border-color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  transform: translateY(40px);
+  opacity: 0;
+
+  &:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 30px -12px rgba(125, 220, 222, 0.4);
+  }
+
+  .categoryName {
+    font-family: var(--inconsolata);
+    color: var(--primary-color);
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .chips {
+    @include flexbox(row, center, flex-start);
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+
+    .chip {
+      font-family: var(--nunito);
+      color: var(--text-color);
+      font-size: 15px;
+      font-weight: 400;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(244, 245, 214, 0.06);
+      border: 1px solid rgba(244, 245, 214, 0.12);
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+.slideIn {
+  transform: translateY(0);
+  opacity: 1;
+}

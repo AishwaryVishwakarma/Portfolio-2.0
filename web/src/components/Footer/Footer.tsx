@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
         >
           Aishwary Vishwakarma
         </Link>
-        @ 2023
+        @ {new Date().getFullYear()}
       </div>
     </div>
   );

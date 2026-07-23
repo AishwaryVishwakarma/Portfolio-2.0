@@ -14,6 +14,11 @@ export default {
       type: 'experience',
     },
     {
+      title: 'Skills',
+      name: 'skills',
+      type: 'skills',
+    },
+    {
       title: 'Projects',
       name: 'projects',
       type: 'projects',
