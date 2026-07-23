@@ -1,7 +1,9 @@
 // Sanity client to connect with the database server
 import {createClient} from '@sanity/client';
 
-const todayDate = new Date().toISOString().slice(0, 10);
+// Pin the API version to a fixed date. Using `new Date()` here changed the
+// version every day, which busted Sanity's CDN cache on each deploy/day.
+const API_VERSION = '2024-02-01';
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 
@@ -11,5 +13,5 @@ export const client = createClient({
   projectId: projectId,
   dataset: dataset,
   useCdn: true,
-  apiVersion: todayDate.toString(),
+  apiVersion: API_VERSION,
 });

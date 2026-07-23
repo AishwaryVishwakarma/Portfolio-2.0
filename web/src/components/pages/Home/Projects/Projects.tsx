@@ -1,6 +1,7 @@
 'use client';
 
 import {HomeData} from '@/app/page';
+import useSlideInOnView from '@/hooks/useSlideInOnView';
 import SanityImage from '@/sanity/SanityImage';
 import Link from 'next/link';
 import React from 'react';
@@ -11,36 +12,9 @@ import styles from './styles.module.scss';
 const Projects: React.FC<HomeData['projects']> = (data) => {
   const {heading, projectCards = []} = data ?? {};
 
-  const cardsContainerRef = React.useRef<HTMLUListElement | null>(null);
-
-  React.useEffect(() => {
-    const cards = cardsContainerRef.current?.childNodes ?? [];
-
-    const observer = new IntersectionObserver(
-      (entries): void => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.setAttribute('data-is-visible', 'true');
-            entry.target.classList.add(styles.slideIn);
-            return;
-          }
-          entry.target.classList.remove(styles.slideIn);
-          entry.target.setAttribute('data-is-visible', 'false');
-        });
-      },
-      {
-        rootMargin: '-150px 0px -150px 0px',
-      }
-    );
-
-    cards.forEach((card) => {
-      observer.observe(card as HTMLLIElement);
-    });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  const cardsContainerRef = useSlideInOnView<HTMLUListElement>(styles.slideIn, {
+    rootMargin: '-150px 0px -150px 0px',
+  });
 
   return (
     <section id='projects' className={styles.projectsWrapper}>

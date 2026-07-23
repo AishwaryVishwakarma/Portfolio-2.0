@@ -16,13 +16,16 @@ const useMediaQuery = (
 
   React.useEffect(() => {
     const media = window.matchMedia(query);
-    if (media.matches !== matches) {
-      setMatches(media.matches);
-    }
     const listener = () => setMatches(media.matches);
-    window.addEventListener('resize', listener, {passive: true});
-    return () => window.removeEventListener('resize', () => listener);
-  }, [matches, query]);
+
+    // Sync immediately in case the query already matches on mount.
+    listener();
+
+    // Listen on the MediaQueryList itself, and remove the *same* reference on
+    // cleanup (the old code passed a new arrow fn, so it never detached).
+    media.addEventListener('change', listener);
+    return () => media.removeEventListener('change', listener);
+  }, [query]);
 
   return matches;
 };

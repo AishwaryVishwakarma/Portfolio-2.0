@@ -41,6 +41,12 @@ $animation-timing: 0.2s;
   .hamButton {
     display: flex;
     flex-direction: column;
+    // Reset native <button> chrome so it looks like the original div.
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    color: inherit;
 
     .hamLine {
       height: 3px;
@@ -144,6 +150,15 @@ $animation-timing: 0.2s;
       height: 30px;
       width: 30px;
       margin-left: 10px;
+    }
+
+    .soundButton button {
+      display: flex;
+      align-items: center;
+      border: none;
+      background: none;
+      padding: 0;
+      cursor: pointer;
     }
 
     @media (max-width: '800px') {

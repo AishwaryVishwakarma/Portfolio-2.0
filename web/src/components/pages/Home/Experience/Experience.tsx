@@ -1,6 +1,8 @@
 'use client';
 
+import AmbientVideo from '@/components/AmbientVideo/AmbientVideo';
 import {HomeData} from '@/app/page';
+import useSlideInOnView from '@/hooks/useSlideInOnView';
 import SanityRichText from '@/sanity/SanityRichText';
 import React from 'react';
 import {TextGlitchEffect} from 'react-text-glitch-effect';
@@ -10,36 +12,9 @@ import styles from './styles.module.scss';
 const Experience: React.FC<HomeData['experience']> = (data) => {
   const {heading, experienceCards = []} = data ?? {};
 
-  const cardsContainerRef = React.useRef<HTMLUListElement | null>(null);
-
-  React.useEffect(() => {
-    const cards = cardsContainerRef.current?.childNodes ?? [];
-
-    const observer = new IntersectionObserver(
-      (entries): void => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.setAttribute('data-is-visible', 'true');
-            entry.target.classList.add(styles.slideIn);
-            return;
-          }
-          entry.target.classList.remove(styles.slideIn);
-          entry.target.setAttribute('data-is-visible', 'false');
-        });
-      },
-      {
-        threshold: 0.51,
-      }
-    );
-
-    cards.forEach((card) => {
-      observer.observe(card as HTMLLIElement);
-    });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  const cardsContainerRef = useSlideInOnView<HTMLUListElement>(styles.slideIn, {
+    threshold: 0.51,
+  });
 
   return (
     <section id='experience' className={styles.experienceWrapper}>
@@ -68,9 +43,7 @@ const Experience: React.FC<HomeData['experience']> = (data) => {
             );
           })}
         </ul>
-        <video autoPlay muted loop playsInline className={styles.earth}>
-          <source src='earth.mp4' type='video/mp4' />
-        </video>
+        <AmbientVideo src='earth.mp4' className={styles.earth} />
       </div>
     </section>
   );
